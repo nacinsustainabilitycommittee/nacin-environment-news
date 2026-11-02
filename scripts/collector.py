@@ -65,7 +65,7 @@ def collect():
     write_json(DATA/'last_run.json',{'collected_at':now,'new_candidates':found,'pending_total':len(pending),'query_failures':failures})
     print(f'New: {found}; pending: {len(pending)}; failed searches: {len(failures)}')
     for failure in failures:
-    print(f"Search failed: {failure['query']} — {failure['error']}")
+       print(f"Search failed: {failure['query']} — {failure['error']}")
     if len(failures)==len(QUERIES): raise SystemExit('All news sources failed; check connectivity/rate limits')
 
 if __name__=='__main__': collect()
