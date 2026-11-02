@@ -8,6 +8,8 @@ on:
       - 'site/app.js'
       - 'site/data/published.json'
       - '.github/workflows/pages.yml'
+      - 'site/editor.html'
+      - 'scripts/build_public.py'
   workflow_dispatch:
 permissions:
   contents: read
