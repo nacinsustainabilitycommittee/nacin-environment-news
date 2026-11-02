@@ -1,27 +1,22 @@
 {
-  "collected_at": "2026-11-02T12:52:29+00:00",
-  "new_candidates": 0,
-  "pending_total": 0,
+  "collected_at": "2026-11-02T13:19:48+00:00",
+  "new_candidates": 27,
+  "pending_total": 27,
+  "successful_searches": 3,
   "query_failures": [
     {
-      "query": "\"wildlife smuggling\"",
-      "error": "HTTP Error 429: Too Many Requests"
+      "query": "\"wildlife trafficking\" OR \"wildlife smuggling\"",
+      "source": "GDELT",
+      "error": "Expecting value: line 1 column 1 (char 0)"
     },
     {
-      "query": "\"illegal wildlife trade\"",
-      "error": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "query": "\"pangolin\" \"seized\"",
-      "error": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "query": "\"exotic animals\" \"smuggling\"",
-      "error": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "query": "\"tortoises\" \"smuggled\"",
+      "query": "\"illegal wildlife trade\" OR \"pangolin seizure\"",
+      "source": "GDELT",
       "error": "HTTP Error 429: Too Many Requests"
     }
-  ]
+  ],
+  "new_by_source": {
+    "GDELT": 0,
+    "Google News RSS": 27
+  }
 }
