@@ -1,1 +1,27 @@
-{"collected_at":null,"new_candidates":0,"pending_total":0,"query_failures":[]}
+{
+  "collected_at": "2026-11-02T12:52:29+00:00",
+  "new_candidates": 0,
+  "pending_total": 0,
+  "query_failures": [
+    {
+      "query": "\"wildlife smuggling\"",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "query": "\"illegal wildlife trade\"",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "query": "\"pangolin\" \"seized\"",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "query": "\"exotic animals\" \"smuggling\"",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "query": "\"tortoises\" \"smuggled\"",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ]
+}
