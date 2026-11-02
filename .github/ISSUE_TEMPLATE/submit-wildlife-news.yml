@@ -1,0 +1,43 @@
+name: Submit wildlife news
+description: Suggest a public wildlife trafficking or conservation enforcement report for editorial review.
+title: "[News submission] "
+labels: ["news-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: "Submit public news links only. Do not disclose confidential or personal enforcement information. Submissions are reviewed and are not automatically published. A GitHub account is required."
+  - type: input
+    id: headline
+    attributes:
+      label: Article headline
+      description: Enter the original headline as published.
+      placeholder: Original article title
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Original article URL
+      description: Link directly to the original published article.
+      placeholder: https://example.org/article
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Wildlife trafficking
+        - Wildlife conservation
+        - Seizures & enforcement
+        - CITES & wildlife law
+        - Research & reports
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Relevance to Customs officers (optional)
+      description: Brief public-context explanation only. No confidential information.
+    validations:
+      required: false
