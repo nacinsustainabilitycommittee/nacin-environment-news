@@ -1,0 +1,49 @@
+
+name: Import Public News Submissions
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17,47 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: news-data-writer
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Download pending submissions
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: |
+          python scripts/sync_public_submissions.py pull
+
+      - name: Commit updated pending queue
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site/data/pending.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Import public news submissions"
+            git pull --rebase
+            git push
+          fi
+
+      - name: Mark successfully imported submissions
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: |
+          python scripts/sync_public_submissions.py mark
