@@ -3,7 +3,7 @@ import shutil
 import os, json
 root=Path(__file__).resolve().parents[1]
 out=root/'site/public';out.mkdir(parents=True,exist_ok=True)
-for f in ['index.html','styles.css','app.js','editor.html']:
+for f in ['index.html','styles.css','app.js','editor.html','submit.html']:
     shutil.copy2(root/'site'/f,out/f)
 (out/'data').mkdir(exist_ok=True)
 shutil.copy2(root/'site/data/published.json',out/'data/published.json')
