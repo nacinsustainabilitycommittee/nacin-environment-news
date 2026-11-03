@@ -25,10 +25,11 @@ RSS_QUERIES = [
     '"pangolin smuggling" OR "ivory smuggling" OR "tortoise smuggling"',
     '"snake smuggling" OR "bird smuggling" OR "coral smuggling"',
     '"illegal wildlife trade" OR "wildlife seizure"',
-    '"shahtoosh" OR "Tibetan antelope" trafficking'
+    '"shahtoosh" OR "Tibetan antelope" trafficking',
+    '"Red Sanders" trafficking'
 ]
 
-KEYWORDS = ('wildlife','traffick','smuggl','seiz','pangolin','ivory','rhino','tortoise','turtle','reptile','exotic animal','protected species','elephant','parrot','gecko','endangered','cites','poach','snake','shahtoosh','bird','coral')
+KEYWORDS = ('wildlife','traffick','smuggl','seiz','pangolin','ivory','rhino','tortoise','turtle','reptile','exotic animal','protected species','elephant','parrot','gecko','endangered','cites','poach','snake','shahtoosh','bird','coral','red sander')
 ACTION = ('traffick','smuggl','seiz','arrest','confiscat','illegal','intercept','poach','bust','rescued','trade','shipment')
 MAX_ITEMS = 400
 HEADERS = {'User-Agent': 'Mozilla/5.0 (compatible; NACIN-Environment-News/1.1; news metadata reader)', 'Accept': 'application/json, application/rss+xml, application/xml;q=0.9'}
