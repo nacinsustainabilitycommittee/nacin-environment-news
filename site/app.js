@@ -10,9 +10,16 @@ search.addEventListener('input',render);sort.addEventListener('change',render);
 fetch('data/published.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(data=>{articles=Array.isArray(data)?data.filter(x=>x.status==='published'):[];render()}).catch(()=>{count.textContent='Unavailable';list.replaceChildren(node('div','empty','Could not load approved news. Try refreshing the page.'));});
 
 // Submission links are resolved from the deployed repository, never from user input.
-fetch('config.json',{cache:'no-store'}).then(r=>r.ok?r.json():{}).then(config=>{
-  const repo=String(config.repository||'');
-  if(!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(repo)) return;
-  const href='https://github.com/'+repo+'/issues/new?template=submit-wildlife-news.yml';
-  for(const id of ['submitNews','submitSecondary']){const el=document.getElementById(id);if(el){el.href=href;el.target='_blank';el.rel='noopener noreferrer';}}
-}).catch(()=>{});
+
+/* Public news submission — no GitHub login required */
+
+for (const id of ['submitNews', 'submitSecondary']) {
+  const el = document.getElementById(id);
+
+  if (el) {
+    el.href = 'submit.html';
+    el.removeAttribute('target');
+    el.removeAttribute('rel');
+  }
+}
+
