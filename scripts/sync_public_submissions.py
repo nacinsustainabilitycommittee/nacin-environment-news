@@ -15,24 +15,36 @@ BATCH = ROOT / ".submission-sync-batch.json"
 BASE = os.environ["SUPABASE_URL"].rstrip("/")
 KEY = os.environ["SUPABASE_SECRET_KEY"]
 
+
 def api(method, path, payload=None):
     body = (
         json.dumps(payload).encode("utf-8")
         if payload is not None else None
     )
+
+    headers = {
+        "apikey": KEY,
+        "Content-Type": "application/json",
+        "Prefer": "return=minimal",
+        "User-Agent": "NACIN-News-Importer/1.0"
+    }
+
+    # Legacy JWT service-role keys require Bearer auth.
+    # New sb_secret_ keys use only the apikey header.
+    if not KEY.startswith("sb_secret_"):
+        headers["Authorization"] = "Bearer " + KEY
+
     req = urllib.request.Request(
         BASE + "/rest/v1/" + path,
         data=body,
         method=method,
-        headers={
-            "apikey": KEY,
-            "Authorization": "Bearer " + KEY,
-            "Content-Type": "application/json",
-            "Prefer": "return=minimal"
-        }
+        headers=headers
     )
+
     with urllib.request.urlopen(req, timeout=30) as r:
-        return json.loads(r.read() or b"null")
+        response = r.read()
+        return json.loads(response) if response else None
+
 
 def read(name):
     path = DATA / name
