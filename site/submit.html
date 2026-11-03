@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <title>Submit News | NACIN Environment News</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .submit-box {
+      max-width: 620px;
+      margin: 50px auto;
+      padding: 28px;
+      background: #fff;
+      color: #182a24;
+      border-radius: 12px;
+    }
+    .submit-box label {
+      display: block;
+      margin: 16px 0 6px;
+      font-weight: 600;
+    }
+    .submit-box input,
+    .submit-box textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      border: 1px solid #aaa;
+      border-radius: 6px;
+      font: inherit;
+    }
+    .submit-box button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: #164b37;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<main class="submit-box">
+  <h1>Submit Wildlife News</h1>
+  <p>
+    Suggest a wildlife trafficking or
+    conservation enforcement news article
+    for editorial review.
+  </p>
+
+  <form id="newsForm">
+    <label for="title">News headline</label>
+    <input id="title" maxlength="240" required
+           minlength="5">
+
+    <label for="url">Original article URL</label>
+    <input id="url" type="url" maxlength="2000"
+           required>
+
+    <label for="description">
+      Description (optional)
+    </label>
+    <textarea id="description"
+              maxlength="1000" rows="4"></textarea>
+
+    <button id="submitButton" type="submit">
+      Submit for Review
+    </button>
+  </form>
+
+  <p id="message" role="status" aria-live="polite"></p>
+  <p><a href="index.html">Back to News Portal</a></p>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  const SUPABASE_URL = "https://wcbdrdisziydpdymfzfn.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_K2sQg7bY9JE4Ve6HRpQJxA_zZz6p3rL";
+
+  const db = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
+  document.getElementById("newsForm")
+    .addEventListener("submit", async function(event) {
+      event.preventDefault();
+
+      const button = document.getElementById(
+        "submitButton"
+      );
+      const message = document.getElementById(
+        "message"
+      );
+
+      button.disabled = true;
+      message.textContent = "Submitting...";
+
+      const submission = {
+        title: document.getElementById("title")
+          .value.trim(),
+        url: document.getElementById("url")
+          .value.trim(),
+        description: document.getElementById(
+          "description"
+        ).value.trim()
+      };
+
+      try {
+        const parsed = new URL(submission.url);
+        if (!["https:", "http:"].includes(
+          parsed.protocol
+        )) {
+          throw new Error("Please enter a valid news URL.");
+        }
+
+        const { error } = await db
+          .from("news_submissions")
+          .insert(submission);
+
+        if (error) throw error;
+
+        message.textContent =
+          "Submitted successfully! " +
+          "Your link will be reviewed before publication.";
+
+        document.getElementById("newsForm").reset();
+      } catch (error) {
+        message.textContent =
+          "Submission failed: " + error.message;
+      } finally {
+        button.disabled = false;
+      }
+    });
+</script>
+
+</body>
+</html>
