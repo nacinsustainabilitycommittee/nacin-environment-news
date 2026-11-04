@@ -1,8 +1,8 @@
 {
-  "collected_at": "2026-11-03T03:57:45+00:00",
-  "new_candidates": 6,
-  "pending_total": 31,
-  "successful_searches": 3,
+  "collected_at": "2026-11-04T03:59:28+00:00",
+  "new_candidates": 7,
+  "pending_total": 38,
+  "successful_searches": 6,
   "query_failures": [
     {
       "query": "\"wildlife trafficking\" OR \"wildlife smuggling\"",
@@ -12,6 +12,6 @@
   ],
   "new_by_source": {
     "GDELT": 0,
-    "Google News RSS": 6
+    "Google News RSS": 7
   }
 }
