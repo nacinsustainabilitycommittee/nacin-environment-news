@@ -3,7 +3,7 @@
 import argparse,datetime as dt,json,pathlib
 from collector import DATA,read_json,write_json
 
-def review(story_id,decision,editor,note,species=None,country=None,verification="unverified", publication_date=None):
+def review(story_id,decision,editor,note,species=None,country=None,state=None,verification="unverified", publication_date=None):
     if not editor.strip(): raise ValueError('Editor name is required')
     pending=read_json(DATA/'pending.json',[])
     target=next((x for x in pending if x['id']==story_id),None)
@@ -12,6 +12,20 @@ def review(story_id,decision,editor,note,species=None,country=None,verification=
         target['species']=[s.strip()[:90] for s in species.split(',') if s.strip()][:12]
     if country:
         target['incident_country']=country.strip()[:100] or None
+
+
+    if state:
+        if (
+            str(target.get('incident_country') or '')
+            .strip().lower() == 'india'
+        ):
+            target['incident_state'] = state.strip()[:100]
+        else:
+            raise ValueError(
+                'Incident state can only be set for India'
+            )
+
+    
     if publication_date:
         try:
             clean=dt.date.fromisoformat(publication_date).isoformat()
@@ -49,4 +63,5 @@ if __name__=='__main__':
     p.add_argument('--country',default=None,help='Incident country, NOT news outlet country')
     p.add_argument('--publication-date',default=None,help='Editor-confirmed article publication date YYYY-MM-DD')
     p.add_argument('--verification',choices=['verified','unknown','unverified'],default='unverified')
-    args=p.parse_args();review(args.id,args.decision,args.editor,args.note,args.species,args.country,args.verification,args.publication_date)
+    p.add_argument('--state', default=None)
+    args=p.parse_args();review(args.id,args.decision,args.editor,args.note,args.species,args.country,args.verification,args.publication_date,args.state)
