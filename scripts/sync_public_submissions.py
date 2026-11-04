@@ -115,7 +115,6 @@ def pull():
             'origin': 'Public submission',
             'species': normalize_species(row.get('species')),
             'incident_country': str(row.get('incident_country') or '').strip() or None,
-            'incident_type': str(row.get('incident_type') or '').strip() or None,
             'metadata_status': 'unverified',
         })
         existing.add(article_id)
