@@ -41,3 +41,41 @@ body:
       description: Brief public-context explanation only. No confidential information.
     validations:
       required: false
+  - type: input
+    id: publication_date
+    attributes:
+      label: Article publication date
+      description: Required for archiving. Use YYYY-MM-DD as printed on original article.
+      placeholder: '2026-11-04'
+    validations:
+      required: true
+  - type: input
+    id: species
+    attributes:
+      label: Species or wildlife product (optional)
+      description: Separate multiple species with commas. Use names mentioned in the report only.
+      placeholder: Indian star tortoise, pangolin
+    validations:
+      required: false
+  - type: input
+    id: incident_country
+    attributes:
+      label: Incident country
+      description: Country where the incident occurred; do NOT enter the publishers country unless it is also the incident location.
+      placeholder: India
+    validations:
+      required: false
+  - type: dropdown
+    id: incident_type
+    attributes:
+      label: Incident type (optional)
+      options:
+        - Unknown
+        - Seizure
+        - Smuggling
+        - Trafficking
+        - Poaching
+        - Arrest / Investigation
+        - Other
+    validations:
+      required: false
