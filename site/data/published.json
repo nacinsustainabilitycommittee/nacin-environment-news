@@ -1,5 +1,27 @@
 [
   {
+    "id": "91f56a1a2a1788be",
+    "title": "PETA India aids rescue of trafficked monitor lizards in Sadashivpet",
+    "url": "https://telanganatoday.com/peta-india-aids-rescue-of-trafficked-monitor-lizards-in-sadashivpet",
+    "source": "telanganatoday.com",
+    "source_country": null,
+    "published_at": "2026-11-03",
+    "discovered_at": "2026-11-04T11:09:12.117537+00:00",
+    "status": "published",
+    "query": "Public submission",
+    "editor_note": "",
+    "category": "Wildlife trafficking",
+    "origin": "Public submission",
+    "species": [
+      "Monitor Lizard"
+    ],
+    "incident_country": "India",
+    "incident_type": "Trafficking",
+    "metadata_status": "verified",
+    "reviewed_at": "2026-11-04T17:08:38+00:00",
+    "reviewed_by": "nacinsustainabilitycommittee"
+  },
+  {
     "id": "4d21a9e1130d9c96",
     "title": "How Canada can better track what happens to trafficked wildlife after they’re seized",
     "url": "https://theconversation.com/how-canada-can-better-track-what-happens-to-trafficked-wildlife-after-theyre-seized-293935",
