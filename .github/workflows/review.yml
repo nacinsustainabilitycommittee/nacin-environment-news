@@ -17,6 +17,39 @@ on:
         description: 'Editorial note (optional, public if approved)'
         required: false
         type: string
+      species:
+        description: 'Verified species/product (comma separated), leave empty to retain existing value'
+        required: false
+        type: string
+      incident_country:
+        description: 'Incident country (not publication country), leave empty to retain existing value'
+        required: false
+        type: string
+      incident_type:
+        description: 'Incident type, leave empty to retain existing value'
+        required: false
+        type: choice
+        options:
+          - ''
+          - Seizure
+          - Smuggling
+          - Trafficking
+          - Poaching
+          - Arrest / Investigation
+          - Other
+      publication_date:
+        description: 'Article publication date YYYY-MM-DD; fill only to correct missing/wrong date (especially RSS)'
+        required: false
+        type: string
+      verification:
+        description: 'Verified only if species, country and type checked against source; Unknown otherwise'
+        required: true
+        default: unknown
+        type: choice
+        options:
+          - unknown
+          - verified
+          - unverified
 permissions:
   contents: write
 concurrency:
@@ -37,7 +70,12 @@ jobs:
           DECISION: ${{ inputs.decision }}
           NOTE: ${{ inputs.note }}
           EDITOR: ${{ github.actor }}
-        run: python scripts/review.py "$STORY_ID" "$DECISION" --editor "$EDITOR" --note "$NOTE"
+          SPECIES: ${{ inputs.species }}
+          COUNTRY: ${{ inputs.incident_country }}
+          INCIDENT_TYPE: ${{ inputs.incident_type }}
+          VERIFICATION: ${{ inputs.verification }}
+          PUBLICATION_DATE: ${{ inputs.publication_date }}
+        run: python scripts/review.py "$STORY_ID" "$DECISION" --editor "$EDITOR" --note "$NOTE" --species "$SPECIES" --country "$COUNTRY" --incident-type "$INCIDENT_TYPE" --verification "$VERIFICATION" --publication-date "$PUBLICATION_DATE"
       - name: Commit decision
         run: |
           git config user.name 'nacin-editorial-bot'
