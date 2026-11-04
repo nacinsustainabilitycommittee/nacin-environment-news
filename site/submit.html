@@ -201,6 +201,11 @@ updateStateVisibility();
         category: document.getElementById("category").value,
         species: document.getElementById("species").value.trim() || null,
         incident_country: document.getElementById("incident_country").value.trim() || null,
+        incident_state: document.getElementById("incident_country").value
+    .trim().toLowerCase() === "india"
+      ? (document.getElementById("incident_state").value || null)
+      : null,
+
         description: document.getElementById(
           "description"
         ).value.trim()
