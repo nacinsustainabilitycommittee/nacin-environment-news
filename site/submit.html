@@ -157,6 +157,27 @@
     SUPABASE_KEY
   );
 
+  
+const countryInput = document.getElementById("incident_country");
+const stateSelect = document.getElementById("incident_state");
+
+function updateStateVisibility() {
+  const isIndia =
+    countryInput.value.trim().toLowerCase() === "india";
+
+  stateSelect.disabled = !isIndia;
+
+  stateSelect.closest(".state-field").hidden = !isIndia;
+
+  if (!isIndia) {
+    stateSelect.value = "";
+  }
+}
+
+countryInput.addEventListener("input", updateStateVisibility);
+updateStateVisibility();
+
+
   document.getElementById("newsForm")
     .addEventListener("submit", async function(event) {
       event.preventDefault();
