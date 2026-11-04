@@ -3,7 +3,7 @@
 import argparse,datetime as dt,json,pathlib
 from collector import DATA,read_json,write_json
 
-def review(story_id,decision,editor,note,species=None,country=None,incident_type=None,verification="unverified", publication_date=None):
+def review(story_id,decision,editor,note,species=None,country=None,verification="unverified", publication_date=None):
     if not editor.strip(): raise ValueError('Editor name is required')
     pending=read_json(DATA/'pending.json',[])
     target=next((x for x in pending if x['id']==story_id),None)
@@ -12,8 +12,6 @@ def review(story_id,decision,editor,note,species=None,country=None,incident_type
         target['species']=[s.strip()[:90] for s in species.split(',') if s.strip()][:12]
     if country:
         target['incident_country']=country.strip()[:100] or None
-    if incident_type:
-        target['incident_type']=incident_type.strip() or None
     if publication_date:
         try:
             clean=dt.date.fromisoformat(publication_date).isoformat()
@@ -26,8 +24,8 @@ def review(story_id,decision,editor,note,species=None,country=None,incident_type
         raise ValueError('Invalid verification status')
     # Only explicitly editor-verified records qualify for incident-level charts.
     if verification=='verified':
-        if not target.get('species') or not target.get('incident_country') or target.get('incident_country','').lower() in ('unknown','not specified') or not target.get('incident_type'):
-            raise ValueError('Verified metadata requires species, incident country, and incident type')
+        if not target.get('species') or not target.get('incident_country') or target.get('incident_country','').lower() in ('unknown','not specified'):
+            raise ValueError('Verified metadata requires species and incident country')
     target['metadata_status']=verification
     pending=[x for x in pending if x['id']!=story_id]
     target['status']='published' if decision=='approve' else 'rejected'
@@ -49,7 +47,6 @@ if __name__=='__main__':
     p.add_argument('id');p.add_argument('decision',choices=['approve','reject']);p.add_argument('--editor',required=True);p.add_argument('--note',default='')
     p.add_argument('--species',default=None,help='Comma-separated verified species/product names')
     p.add_argument('--country',default=None,help='Incident country, NOT news outlet country')
-    p.add_argument('--incident-type',default=None)
     p.add_argument('--publication-date',default=None,help='Editor-confirmed article publication date YYYY-MM-DD')
     p.add_argument('--verification',choices=['verified','unknown','unverified'],default='unverified')
-    args=p.parse_args();review(args.id,args.decision,args.editor,args.note,args.species,args.country,args.incident_type,args.verification,args.publication_date)
+    args=p.parse_args();review(args.id,args.decision,args.editor,args.note,args.species,args.country,args.verification,args.publication_date)
