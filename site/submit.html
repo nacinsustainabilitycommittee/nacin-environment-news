@@ -22,7 +22,8 @@
       font-weight: 600;
     }
     .submit-box input,
-    .submit-box textarea {
+    .submit-box textarea,
+    .submit-box select {
       width: 100%;
       box-sizing: border-box;
       padding: 12px;
@@ -30,6 +31,7 @@
       border-radius: 6px;
       font: inherit;
     }
+    .submit-box .help { color: #52655c; font-size: 0.88rem; margin: 5px 0 0; }
     .submit-box button {
       margin-top: 20px;
       padding: 12px 24px;
@@ -59,6 +61,29 @@
     <label for="url">Original article URL</label>
     <input id="url" type="url" maxlength="2000"
            required>
+
+    <label for="publication_date">Article publication date *</label>
+    <input id="publication_date" name="publication_date" type="date" required>
+    <p class="help">Date the news article was published (not the seizure date). Used for the archive.</p>
+
+    <label for="category">Category *</label>
+    <select id="category" name="category" required>
+      <option value="">Select a category</option>
+      <option value="Wildlife trafficking">Wildlife trafficking</option>
+      <option value="Seizures & enforcement">Seizures & enforcement</option>
+      <option value="Wildlife conservation">Wildlife conservation</option>
+      <option value="CITES & wildlife law">CITES & wildlife law</option>
+      <option value="Research & reports">Research & reports</option>
+    </select>
+
+    <label for="species">Species / wildlife product (optional)</label>
+    <input id="species" name="species" maxlength="300"
+           placeholder="e.g. Pangolin, Indian star tortoise, shahtoosh">
+
+    <label for="incident_country">Incident country (optional)</label>
+    <input id="incident_country" name="incident_country" maxlength="120"
+           placeholder="Country where the incident occurred">
+    <p class="help">Leave blank if unclear; do not enter the news publisher's country instead.</p>
 
     <label for="description">
       Description (optional)
@@ -105,6 +130,10 @@
           .value.trim(),
         url: document.getElementById("url")
           .value.trim(),
+        publication_date: document.getElementById("publication_date").value,
+        category: document.getElementById("category").value,
+        species: document.getElementById("species").value.trim() || null,
+        incident_country: document.getElementById("incident_country").value.trim() || null,
         description: document.getElementById(
           "description"
         ).value.trim()
@@ -116,6 +145,18 @@
           parsed.protocol
         )) {
           throw new Error("Please enter a valid news URL.");
+        }
+
+        if (!submission.publication_date || !submission.category) {
+          throw new Error("Please provide the publication date and category.");
+        }
+        // Date-only values use ISO YYYY-MM-DD; reject future publication dates.
+        const today = new Date();
+        const localToday = [today.getFullYear(),
+          String(today.getMonth() + 1).padStart(2, "0"),
+          String(today.getDate()).padStart(2, "0")].join("-");
+        if (submission.publication_date > localToday) {
+          throw new Error("Publication date cannot be in the future.");
         }
 
         const { error } = await db
