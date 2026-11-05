@@ -10,6 +10,9 @@ on:
       - '.github/workflows/pages.yml'
       - 'site/editor.html'
       - 'scripts/build_public.py'
+      - 'site/analytics.html'
+      - 'site/analytics.js'
+      - 'site/analytics-core.js'
   workflow_dispatch:
 permissions:
   contents: read
