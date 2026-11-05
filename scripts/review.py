@@ -3,7 +3,7 @@
 import argparse,datetime as dt,json,pathlib
 from collector import DATA,read_json,write_json
 
-def review(story_id,decision,editor,note,species=None,country=None,state=None,verification="unverified", publication_date=None):
+def review(story_id,decision,editor,note,species=None,country=None,verification="unverified", publication_date=None,state=None):
     if not editor.strip(): raise ValueError('Editor name is required')
     pending=read_json(DATA/'pending.json',[])
     target=next((x for x in pending if x['id']==story_id),None)
