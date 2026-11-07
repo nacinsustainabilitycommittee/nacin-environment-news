@@ -120,6 +120,7 @@
       "Monitor Lizard"
     ],
     "incident_country": "India",
+    "incident_state": "Telangana",
     "incident_type": "Trafficking",
     "metadata_status": "verified",
     "reviewed_at": "2026-11-04T17:08:38+00:00",
@@ -156,6 +157,9 @@
     "species": [
       "Multiple species"
     ],
+    "incident_country": "India",
+    "incident_state": "",
+    "metadata_status": "verified",
     "origin": "Public submission",
     "reviewed_at": "2026-11-03T11:11:17+00:00",
     "reviewed_by": "nacinsustainabilitycommittee"
@@ -190,6 +194,9 @@
     "species": [
       "Birds"
     ],
+    "incident_country": "India",
+    "incident_state": "Uttar Pradesh",
+    "metadata_status": "verified",
     "submission_type": "manual",
     "submitted_by": "nacinsustainabilitycommittee",
     "github_issue": 1,
