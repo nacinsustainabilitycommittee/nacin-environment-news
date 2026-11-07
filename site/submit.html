@@ -86,7 +86,7 @@
     <p class="help">Leave blank if unclear; do not enter the news publisher's country instead.</p>
 
     
-<label for="incident_state">
+<label for="incident_state" id="stateLabel">
   Incident State / Union Territory (India only)
 </label>
 
@@ -167,8 +167,9 @@ function updateStateVisibility() {
 
   stateSelect.disabled = !isIndia;
 
-  stateSelect.closest(".state-field").hidden = !isIndia;
+  stateSelect.hidden = !isIndia;
 
+  document.getElementById("stateLabel").hidden = !isIndia;
   if (!isIndia) {
     stateSelect.value = "";
   }
