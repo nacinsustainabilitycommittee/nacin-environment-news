@@ -13,7 +13,7 @@
     "category": "Wildlife trafficking",
     "origin": "Public submission",
     "species": [
-      "Turtle"
+      "Turtles"
     ],
     "incident_country": "India",
     "incident_state": "Odisha",
@@ -75,7 +75,7 @@
     "editor_note": "",
     "category": "Wildlife trafficking",
     "species": [
-      "Tarantula"
+      "Spiders"
     ],
     "incident_country": "Peru",
     "metadata_status": "verified",
@@ -153,6 +153,9 @@
     "query": "Public submission",
     "editor_note": "",
     "category": "Wildlife trafficking",
+    "species": [
+      "Multiple species"
+    ],
     "origin": "Public submission",
     "reviewed_at": "2026-11-03T11:11:17+00:00",
     "reviewed_by": "nacinsustainabilitycommittee"
@@ -184,6 +187,9 @@
     "query": null,
     "editor_note": "",
     "category": "Wildlife trafficking",
+    "species": [
+      "Birds"
+    ],
     "submission_type": "manual",
     "submitted_by": "nacinsustainabilitycommittee",
     "github_issue": 1,
