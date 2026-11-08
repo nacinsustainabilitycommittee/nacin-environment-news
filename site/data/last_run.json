@@ -1,22 +1,17 @@
 {
-  "collected_at": "2026-11-07T03:56:06+00:00",
-  "new_candidates": 5,
-  "pending_total": 55,
+  "collected_at": "2026-11-08T03:58:30+00:00",
+  "new_candidates": 2,
+  "pending_total": 57,
   "successful_searches": 6,
   "query_failures": [
     {
       "query": "\"wildlife trafficking\" OR \"wildlife smuggling\"",
       "source": "GDELT",
-      "error": "Expecting value: line 1 column 1 (char 0)"
-    },
-    {
-      "query": "\"illegal wildlife trade\" OR \"pangolin seizure\"",
-      "source": "GDELT",
-      "error": "Expecting value: line 1 column 1 (char 0)"
+      "error": "HTTP Error 429: Too Many Requests"
     }
   ],
   "new_by_source": {
     "GDELT": 0,
-    "Google News RSS": 5
+    "Google News RSS": 2
   }
 }
