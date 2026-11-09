@@ -1,7 +1,7 @@
 {
-  "collected_at": "2026-11-08T03:58:30+00:00",
-  "new_candidates": 2,
-  "pending_total": 57,
+  "collected_at": "2026-11-09T04:02:27+00:00",
+  "new_candidates": 7,
+  "pending_total": 61,
   "successful_searches": 6,
   "query_failures": [
     {
@@ -12,6 +12,6 @@
   ],
   "new_by_source": {
     "GDELT": 0,
-    "Google News RSS": 2
+    "Google News RSS": 7
   }
 }
