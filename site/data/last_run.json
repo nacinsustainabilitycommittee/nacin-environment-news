@@ -1,17 +1,37 @@
 {
-  "collected_at": "2026-11-16T04:22:22+00:00",
-  "new_candidates": 2,
+  "collected_at": "2026-11-17T04:00:32+00:00",
+  "new_candidates": 0,
   "pending_total": 100,
-  "successful_searches": 6,
+  "successful_searches": 2,
   "query_failures": [
     {
       "query": "\"wildlife trafficking\" OR \"wildlife smuggling\"",
       "source": "GDELT",
       "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "query": "\"wildlife trafficking\" OR \"wildlife smuggling\"",
+      "source": "Google News RSS",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "query": "\"illegal wildlife trade\" OR \"wildlife seizure\"",
+      "source": "Google News RSS",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "query": "\"shahtoosh\" OR \"Tibetan antelope\" trafficking",
+      "source": "Google News RSS",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "query": "\"Red Sanders\" trafficking",
+      "source": "Google News RSS",
+      "error": "HTTP Error 429: Too Many Requests"
     }
   ],
   "new_by_source": {
     "GDELT": 0,
-    "Google News RSS": 2
+    "Google News RSS": 0
   }
 }
