@@ -1,8 +1,8 @@
 {
-  "collected_at": "2026-11-20T04:00:21+00:00",
+  "collected_at": "2026-11-21T03:59:04+00:00",
   "new_candidates": 4,
-  "pending_total": 121,
-  "successful_searches": 5,
+  "pending_total": 125,
+  "successful_searches": 6,
   "query_failures": [
     {
       "query": "\"wildlife trafficking\" OR \"wildlife smuggling\"",
@@ -12,12 +12,7 @@
     {
       "query": "\"illegal wildlife trade\" OR \"pangolin seizure\"",
       "source": "GDELT",
-      "error": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "query": "\"wildlife trafficking\" OR \"wildlife smuggling\"",
-      "source": "Google News RSS",
-      "error": "HTTP Error 429: Too Many Requests"
+      "error": "Expecting value: line 1 column 1 (char 0)"
     }
   ],
   "new_by_source": {
