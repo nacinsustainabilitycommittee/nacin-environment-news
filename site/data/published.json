@@ -1,5 +1,25 @@
 [
   {
+    "id": "3219cd17c1a4096c",
+    "title": "Two arrested and 30.000 euros seized in Gran Canaria after dismantling an international network trafficking protected species - Maspalomas 24h",
+    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPdlRNLWhBem00dUtKWUktWkFmRGdVQ1Z4Mkg2NUQzN080d0hEY1RqSmlvb2N1dVd2eUhiaF8yd1NfMW1RaE5pOVJqeW1IRGxqY1NoZ1d6NGNmN0xoYXRmVFgyUmtlUnc1c1F3WTA1S29GR3hzcC12emZuWVVRZXF3SVhwbjZGOXROTE1UNmtXM01GMm5XRFB2RUFtRVhJSjBYRDlhNTJDdk1vUHpFdFhBSDZtVE9rT0FF?oc=5",
+    "source": "Maspalomas 24h",
+    "source_country": null,
+    "published_at": "2026-11-21T15:27:32+00:00",
+    "discovered_at": "2026-11-23T04:16:08+00:00",
+    "status": "published",
+    "query": "\"wildlife trafficking\" OR \"wildlife smuggling\"",
+    "editor_note": "The investigation began after the arrest, at Rio de Janeiro airport, of a Swiss citizen who intended to fly to Europe with 24 protected bird eggs hidden under her clothing  Four people have been arrested, two of them in Gran Canaria, and eight simultaneous searches have been carried out, two of them in Spain.",
+    "category": "Wildlife trafficking",
+    "species": [
+      "Birds"
+    ],
+    "incident_country": "Brazil",
+    "metadata_status": "verified",
+    "reviewed_at": "2026-11-23T13:35:00+00:00",
+    "reviewed_by": "nacinsustainabilitycommittee"
+  },
+  {
     "id": "358f68c8894e3a48",
     "title": "Birds in Their Pants: Two Men Accused of Smuggling 21 Avians After Miami Airport Bust",
     "url": "https://www.smithsonianmag.com/smart-news/birds-in-their-pants-two-men-accused-of-smuggling-21-avians-after-miami-airport-bust-180989670",
