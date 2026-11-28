@@ -1,5 +1,25 @@
 [
   {
+    "id": "5d79d7db439948f9",
+    "title": "Thai police charge 22 with wildlife trafficking at Tiger Temple - Yeni Safak English",
+    "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNQm9rT3BfalFmaDl6WjdCaHZ6Q296SGZqU1pXZjNyZUM5LUw2a3pqcl83cDZOTDlTTGsxTG51bjNDUW5IcG1ZMkUwbE16ektSSGRWZVJDQnRzMmhkdUhIbFhjd0g4ZHVWRHI2WU1rLXZ0eTRmTjA4WXJvZU5WUEVzZHktQUU2NDJ3dWdJX3ZBMTRZU2Y5akhNbEpFa0wxckRwcTR0QQ?oc=5",
+    "source": "Yeni Safak English",
+    "source_country": null,
+    "published_at": "2026-11-27T05:18:29+00:00",
+    "discovered_at": "2026-11-28T04:04:05+00:00",
+    "status": "published",
+    "query": "\"wildlife trafficking\" OR \"wildlife smuggling\"",
+    "editor_note": "",
+    "category": "Wildlife trafficking",
+    "species": [
+      "Tiger"
+    ],
+    "incident_country": "Thailand",
+    "metadata_status": "verified",
+    "reviewed_at": "2026-11-28T15:13:12+00:00",
+    "reviewed_by": "nacinsustainabilitycommittee"
+  },
+  {
     "id": "ed9f9e6b7cd6c2b7",
     "title": "DRI seizes over 19 kg elephant ivory in West Champaran, Bihar, near Indo-Nepal Border in a joint operation with Bihar State Police; four persons apprehended",
     "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2341791&reg=48&lang=2",
